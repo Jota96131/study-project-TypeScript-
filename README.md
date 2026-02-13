@@ -1,79 +1,63 @@
-# React + TypeScript + Vite
+# サービス名
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StudyLog
 
-Currently, two official plugins are available:
+# サービスの説明
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+学習内容と学習時間を記録・管理できるWebアプリケーションです。日々の学習をテーブル形式で一覧表示し、記録の追加・編集・削除が行えます。
 
-## React Compiler
+## 主な機能
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 学習記録の一覧表示（テーブル形式）
+- 新規記録の登録（学習内容・学習時間）
+- 既存記録の編集
+- 記録の削除
 
-## Expanding the ESLint configuration
+## 技術スタック
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19 / TypeScript
+- Vite（ビルドツール）
+- Chakra UI（UIコンポーネント）
+- Supabase（データベース）
+- Jest / React Testing Library（テスト）
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+## 環境設定
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 前提条件
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+- Node.js（v18以上推奨）
+- npm
+
+### 環境変数の設定
+
+プロジェクトルートに `.env` ファイルを作成し、以下の変数を設定してください。
+
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 依存パッケージのインストール
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install
 ```
 
-# study-project-TypeScript-
+## 起動方法
 
-# テスト変更
+### 開発サーバーの起動
 
-# テスト3
+```bash
+npm run dev
+```
+
+ブラウザで `http://localhost:5173` にアクセスしてください。
+
+### その他のコマンド
+
+| コマンド          | 説明                   |
+| ----------------- | ---------------------- |
+| `npm run build`   | 本番用ビルド           |
+| `npm run preview` | ビルド結果のプレビュー |
+| `npm run lint`    | ESLintによるコード検査 |
+| `npm run test`    | Jestによるテスト実行   |
